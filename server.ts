@@ -1,6 +1,7 @@
 import { inferAsyncReturnType, initTRPC } from "@trpc/server";
 import * as trpcExpress from "@trpc/server/adapters/express";
-import { default as cors, default as express } from "express";
+import cors from "cors";
+import express from "express";
 import { z } from "zod";
 
 const createContext = ({
@@ -15,11 +16,11 @@ const t = initTRPC.context<Context>().create();
 const router = t.router;
 const publicProcedure = t.procedure;
 
-const appRouter = router({
+export const appRouter = router({
   greeting: publicProcedure
     .input(z.object({ text: z.string() }))
     .query(({ input }) => {
-      return { message: `Hello ${input}` };
+      return { message: `Hello ${input.text}` };
     }),
 });
 
