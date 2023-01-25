@@ -19,7 +19,7 @@ const publicProcedure = t.procedure;
 export const appRouter = router({
   greeting: publicProcedure
     .input(z.object({ text: z.string() }))
-    .query(({ input }) => {
+    .mutation(({ input }) => {
       return { message: `Hello ${input.text}` };
     }),
 });
