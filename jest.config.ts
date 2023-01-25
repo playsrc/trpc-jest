@@ -10,7 +10,7 @@ export default {
   // A preset that is used as a base for Jest's configuration
   preset: "ts-jest/presets/js-with-ts",
   // The paths to modules that run some code to configure or set up the testing environment before each test
-  setupFiles: ["dotenv/config"],
+  // setupFiles: ["dotenv/config"],
   // A map from regular expressions to paths to transformers
   transform: {
     "^.+\\.mjs$": "ts-jest",
